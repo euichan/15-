@@ -24,7 +24,7 @@ if(isset($_SESSION['login_user']))
 else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $username = $_POST['id'];
-    $password = &_POST['password'];
+    $password = $_POST['password'];
     
     //아이디 입력 확인
     if(!$username)
@@ -41,7 +41,7 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
     
     //회원 정보를 가져오는 SQL구문
     $sql = "select id from user_db where id = '$username' and pw = '$password'";
-    $result = $mysql_query($sql);
+    $result = mysql_query($sql);
     
     //레코드 갯수 셈
     $count=mysql_num_rows($result);

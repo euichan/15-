@@ -1,0 +1,6 @@
+CREATE DATABASE layer7;
+
+CREATE TABLE `user_db` (
+  `id` varchar(30) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `pw` varchar(30) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
