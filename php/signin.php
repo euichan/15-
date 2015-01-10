@@ -15,13 +15,52 @@
     //세션 시작
     session_start();
 
+<<<<<<< HEAD
     //세션 확인
     if(isset($_SESSION['login_user']))
+=======
+//세션 확인
+if(isset($_SESSION['login_user']))
+{
+    unset($_SESSION['login_user']);
+}
+
+else if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    $username = $_POST['id'];
+    $password = $_POST['password'];
+    
+    //아이디 입력 확인
+    if(!$username)
+    {
+        echo "<script> alert("아이디를 입력하셈..ㅉㅉ"); location.href=\"../html/signin.html\"; </script>";
+    }
+    
+    
+    //패스워드 입력 확인
+    if(!$password)
+>>>>>>> b03e0d0f857c695126232ad43d7285f30d1cc0f6
     {
         unset($_SESSION['login_user']);
     }
+<<<<<<< HEAD
 
     else if($_SERVER["REQUEST_METHOD"] == "POST")
+=======
+    
+    //회원 정보를 가져오는 SQL구문
+    $sql = "select id from user_db where id = '$username' and pw = '$password'";
+    $result = mysql_query($sql);
+    
+    //레코드 갯수 셈
+    $count=mysql_num_rows($result);
+    if($count==1)
+    {
+        $_SESSION['login_user']=$username;
+    }
+    
+    else
+>>>>>>> b03e0d0f857c695126232ad43d7285f30d1cc0f6
     {
         $username = $_POST['id'];
         $password = $_POST['password'];
